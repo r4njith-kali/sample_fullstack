@@ -8,12 +8,17 @@ import './App.css';
 function App() {
   return (
     <div className='App'>
-      <h1>Mini Router Web App</h1>
+    <header className="navbar">
       <Routes>
         <Route path = '/' element = {<Home />} />
         <Route path = '/about' element = {<About />} />
         <Route path = '/contact' element = {<Contact />} />
       </Routes>
+    </header>
+    <main>
+      <h1>Your pages render here</h1> 
+    </main>
+
     </div>
   );
 }
