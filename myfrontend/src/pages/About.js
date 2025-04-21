@@ -10,6 +10,7 @@ function About() {
                 About Page
             </h2>
             <button onClick={() => navigate('/')}>Go back Home</button>
+            <button onClick={() => navigate('/contact')}>Contact page</button>
         </div>
     );
 }
