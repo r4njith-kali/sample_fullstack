@@ -8,9 +8,9 @@ function Home() {
     return (
         <div>
             <h2>Welcome Page</h2>
-            <div className = "home-container">
-                <button className="big-button" onClick={() => navigate('/about')}>Go to About Page</button>
-                <button onClick={() => navigate('/contact')}>Contacts Page</button>
+            <div className = "parent">
+                <button className="child" onClick={() => navigate('/about')}>Go to About Page</button>
+                <button className="child" onClick={() => navigate('/contact')}>Contacts Page</button>
             </div>
         </div>
     );

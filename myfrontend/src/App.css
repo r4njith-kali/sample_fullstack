@@ -1,30 +1,65 @@
-.App {
+/* Whole page */
+body {
+  margin: 0;
+  padding: 100%;
+  background: linear-gradient(#505050, #2c2c2c); /* metallic grey gradient */
+  font-family: 'Courier New', Courier, monospace;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+/* Center everything inside container */
+.container {
   text-align: center;
+  width: 100%;
+  max-width: 100%;
 }
 
-button {
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  border: none;
+/* Big welcome text */
+.header {
+  font-size: 48px;
   color: white;
-  font-size: 16px;
-  margin-top: 20px;
-  cursor: pointer;
-  border-radius: 5px;
+  margin-bottom: 20px;
 }
 
-button:hover {
-  background-color: #45a049;
+/* Smaller sub-header */
+.sub-header {
+  font-size: 24px;
+  color: #ccc;
+  margin-bottom: 30px;
+  justify-content: 'center';
 }
 
-.app-container {
-  max-width: 1200px;
-  margin: 0 auto;
+/* Input form */
+.input-form {
+  margin-bottom: 40px;
+}
+
+/* Text input box */
+.input-box {
+  width: 1000px;
   padding: 20px;
+  font-size: 18px;
+  border-radius: 8px;
+  border: 2px solid #888;
+  background-color: #eee;
 }
 
-.navbar {
-  background-color: #6200ea;
-  padding: 10px 20px;
-  color: white;
+/* Terminal box at bottom */
+.terminal {
+  background-color: black;
+  color: lime;
+  padding: 50px;
+  height: 600px;
+  width: 1500px;
+  overflow-y: auto;
+  font-size: 24px;
+  text-align: left;
+  border-radius: 50px;
+
+  /* New styles */
+  margin-left: 100px;
+  margin-right: 100px;
 }
+

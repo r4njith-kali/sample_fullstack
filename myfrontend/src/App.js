@@ -1,24 +1,34 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import About from './pages/About';
-import Contact from './pages/Contact';
-import './App.css';
+import React, { useState } from 'react';
+import './App.css'; // CSS file we'll create
 
 function App() {
-  return (
-    <div className='App'>
-    <header className="navbar">
-      <Routes>
-        <Route path = '/' element = {<Home />} />
-        <Route path = '/about' element = {<About />} />
-        <Route path = '/contact' element = {<Contact />} />
-      </Routes>
-    </header>
-    <main>
-      <h1>Your pages render here</h1> 
-    </main>
+  const [query, setQuery] = useState('');
+  const [output, setOutput] = useState('');
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setOutput(query);
+    setQuery('');
+  };
+
+  return (
+    <div className="container">
+      <h1 className="header">Welcome!</h1>
+      <h2 className="sub-header">Enter your input</h2>
+
+      <form onSubmit={handleSubmit} className="input-form">
+        <input
+          type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="What's your query?"
+          className="input-box"
+        />
+      </form>
+
+      <div className="terminal">
+        {output && <p> >> {output}</p>}
+      </div>
     </div>
   );
 }
