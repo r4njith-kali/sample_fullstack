@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css'; // CSS file we'll create
+import axios from 'axios';
 
 function App() {
   const [query, setQuery] = useState('');
@@ -10,6 +11,15 @@ function App() {
     setOutput(query);
     setQuery('');
   };
+
+  const [message, setMessage] = useState('');
+
+  useEffect(() => {
+    axios.get('http://127.0.0.1:8000/api/hello/')
+    .then((response) => {
+      setMessage(response.data.message);
+    });
+  }, [])
 
   return (
     <div className="container">
@@ -25,6 +35,10 @@ function App() {
           className="input-box"
         />
       </form>
+
+      <div>
+        <h1>{message}</h1>
+      </div>
 
       <div className="terminal">
         {output && <p> >> {output}</p>}
