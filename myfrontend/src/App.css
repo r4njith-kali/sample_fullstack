@@ -54,12 +54,8 @@ body {
   height: 600px;
   width: 1500px;
   overflow-y: auto;
-  font-size: 24px;
+  font-size: 30px;
   text-align: left;
-  border-radius: 50px;
-
-  /* New styles */
-  margin-left: 100px;
-  margin-right: 100px;
+  border-radius: 50px; 
 }
 
