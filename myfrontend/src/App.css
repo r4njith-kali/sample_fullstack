@@ -1,7 +1,7 @@
 /* Whole page */
 body {
   margin: 0;
-  padding: 100%;
+  padding: 0;
   background: linear-gradient(#505050, #2c2c2c); /* metallic grey gradient */
   font-family: 'Courier New', Courier, monospace;
   height: 100vh;

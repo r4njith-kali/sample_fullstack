@@ -1,25 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css'; // CSS file we'll create
-import axios from 'axios';
 
 function App() {
   const [query, setQuery] = useState('');
   const [output, setOutput] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setOutput(query);
-    setQuery('');
+    
+    try {
+      const response = await fetch('http://localhost:8000/api/encode/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({text: query}),
+      });
+
+      const data = await response.json();
+      if (data.encoded) {
+        setOutput(data.encoded);
+      } else {
+        setOutput('Error processing input.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setOutput('Server error.');
+    }
   };
-
-  const [message, setMessage] = useState('');
-
-  useEffect(() => {
-    axios.get('http://127.0.0.1:8000/api/hello/')
-    .then((response) => {
-      setMessage(response.data.message);
-    });
-  }, [])
 
   return (
     <div className="container">
@@ -35,10 +43,6 @@ function App() {
           className="input-box"
         />
       </form>
-
-      <div>
-        <h1>{message}</h1>
-      </div>
 
       <div className="terminal">
         {output && <p> >> {output}</p>}
